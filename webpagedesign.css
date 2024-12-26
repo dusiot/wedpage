@@ -1,0 +1,243 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: url('sport.png') no-repeat center center fixed; 
+    background-size: cover;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Light and Dark Theme Colors */
+body.light {
+    background-color: #ffffff;
+    color: #333;
+}
+
+body.dark {
+    background-color: #2c2c2c;
+    color: #f5f5f5;
+}
+
+h1, h2, h3 {
+    color: inherit;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between; /* Align logo and navigation links */
+    align-items: center;
+    background: linear-gradient(90deg, #ffb0b0, #f94f4f);
+    color: #fff;
+    padding: 15px 20px;
+}
+
+/* Logo Styling */
+nav .logo img {
+    height: 50px; /* Adjust the height of the logo */
+    width: auto;
+    margin-right: 20px; /* Spacing between logo and nav items */
+}
+
+/* Navigation Links */
+nav ul {
+    list-style: none;
+    display: flex; /* Display links in a row */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff6347;
+}
+
+/* Section Styling */
+section {
+    margin: 50px auto;
+    padding: 150px;
+    max-width: 900px;
+    background: #e6e6e6;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+    flex: 1;
+}
+
+body.dark section {
+    background: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Profile and Events Section */
+.profile-section, .event-section, .registered-events {
+    margin: 20px 0;
+    padding: 20px;
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    background: #e6f7ff;
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+body.dark .profile-section, body.dark .event-section, body.dark .registered-events {
+    border: 2px solid #555;
+    background: #444;
+}
+
+.profile-section h2, .event-section h2, .registered-events h2 {
+    text-align: left;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #1f4037;
+    transition: color 0.3s ease;
+}
+
+body.dark .profile-section h2, body.dark .event-section h2, body.dark .registered-events h2 {
+    color: #99f2c8;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, button, select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #1f4037;
+    outline: none;
+}
+
+button {
+    background: #1f4037;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #99f2c8;
+    color: #333;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background: #1f4037;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+    background: #99f2c8;
+    color: #333;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #e6f7ff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background: #1f4037;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+body.dark table {
+    background: #444;
+    color: #f5f5f5;
+    border-color: #555;
+}
+
+body.dark table th {
+    background: #99f2c8;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 30px;
+    background: linear-gradient(90deg, #ffb0b0, #f94f4f);
+    color: #fff;
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+footer a {
+    color: #99f2c8;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #ff6347;
+}
+
+/* Dark/Light Theme Toggle (Optional) */
+.theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.theme-toggle:hover {
+    background: #1f4037;
+}

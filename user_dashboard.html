@@ -1,0 +1,74 @@
+  <!--USER-->  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="webpagedesign.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <img src="uni10.png" alt="Logo">
+        </div>
+        <ul>
+            <li><a href="home_page.html">Home</a></li>
+            <li><a href="home_page.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- User Dashboard Section -->
+    <section id="user-dashboard">
+        <h1>Welcome, [User's Name]</h1>
+        <p>Here is your dashboard where you can manage your profile and event registrations.</p>
+
+        <!-- User Profile -->
+        <div class="profile-section">
+            <h2>Your Profile</h2>
+            <ul>
+                <li><strong>Username:</strong> [username outout here]</li>
+                <li><strong>Email:</strong> [emailoutput here]</li>
+                <li><strong>Registered Events:</strong> [event list]</li>
+            </ul>
+        </div>
+
+        <!-- Event Registration Section -->
+        <div class="event-section">
+            <h2>Register for Events</h2>
+            <form action="register_event.php" method="POST">
+                <label for="event">Select Event:</label>
+                <select name="event" id="event" required>
+                    <option value="">-- Choose an event --</option>
+                    <!-- Dynamically populate events using PHP -->
+                </select>
+                <button type="submit">Register</button>
+            </form>
+            <p><em>Note: You cannot register for events that are full.</em></p>
+        </div>
+
+        <!-- List of Registered Events -->
+        <div class="registered-events">
+            <h2>Your Registered Events</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ALL THE EVENT DETAIL FROM DB OUTPUT HERE USE (SQL AND PHP HERE)-->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Event Management System by group 15 2B_01</p>
+    </footer>
+</body>
+</html>
