@@ -32,7 +32,7 @@
     <h2>Admin Dashboard</h2>
    <center> 
     <a href="add_sub_event.html" class="button">Add Sub-Event/Category</a>
-    <a href="view_participants.html" class="button">View Participants</a>
+    <a href="view_participants.php" class="button">View Participants</a>
     <a href="search_user.html" class="button">Search Users</a>
    </center>
 </section>
