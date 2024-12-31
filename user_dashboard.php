@@ -83,7 +83,7 @@ if (mysqli_num_rows($result) > 0) {
                 <select name="event" id="event" required>
                     <option value="">-- Choose an event --</option>
                     <?php
-                    // Fetch all events from the database
+                    // ni dia akan cari data dalam DB event mana yang user dah join
                     $all_events_sql = "SELECT * FROM event_table";
                     $all_events_result = mysqli_query($con, $all_events_sql);
                     while ($event_row = mysqli_fetch_assoc($all_events_result)) {
@@ -108,13 +108,18 @@ if (mysqli_num_rows($result) > 0) {
                 </thead>
                 <tbody>
                     <?php
-                    // ambil event yang sudah didaftar untuk user pilih
+                    // (ambil event yang sudah didaftar untuk user pilih)
                     $registered_sql = "SELECT event_table.ev_name, event_table.ev_date, registered_events.EventID FROM event_table 
                                       INNER JOIN registered_events ON event_table.ID = registered_events.EventID 
-                                      WHERE registered_events.UserID = '$id'";
-                    $registered_result = mysqli_query($con, $registered_sql);
+                                      WHERE registered_events.UserID = '$id'"; //<-------function: mendapatkan semula detail event (ev_name, ev_date) dan EventID untuk event yang user telah daftar.
+                    $registered_result = mysqli_query($con, $registered_sql);//<----untuk run sql query guna database punye connection($con = connection)
+
+                   //yang if ni untuk check query bagi mana2 row event mana yang user dah dafatar
                     if (mysqli_num_rows($registered_result) > 0) {
+                        // yang while ni pulak untuk dia display event yang  dh di register
+                        //yang while ni jugak dia akan read semua row dalam (query/DB) punya result
                         while ($registered_row = mysqli_fetch_assoc($registered_result)) {
+                            //sini dia display event name ngan date
                             echo "<tr>
                                     <td>" . $registered_row['ev_name'] . "</td>
                                     <td>" . $registered_row['ev_date'] . "</td>
