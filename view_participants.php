@@ -1,21 +1,24 @@
   <!--ADMIN-->  
 
 <?php
-
+session_start();
 $con = mysqli_connect("localhost", "root", "", "projectevent") or die("Unable to connect to server".mysqli_connect_error());
 
 if (isset($_GET['delete_id'])) {
     $delete_id = intval($_GET['delete_id']);
     $sql_delete = "DELETE FROM usertable WHERE ID = ?";
-    $stmt = $conn->prepare($sql_delete);
+    $stmt = $con->prepare($sql_delete);
     $stmt->bind_param("i", $delete_id);
     if ($stmt->execute()) {
-        echo "<script>alert('Row deleted successfully!');</script>";
+        // Set a session variable for success
+        $_SESSION['delete_message'] = 'Row deleted successfully!';
     } else {
-        echo "<script>alert('Error deleting row!');</script>";
+        // Set a session variable for error
+        $_SESSION['delete_message'] = 'Error deleting row!';
     }
     $stmt->close();
-    // Redirect to avoid resubmission
+
+    // Redirect to the same page
     header("Location: " . $_SERVER['PHP_SELF']);
     exit();
 }
@@ -31,6 +34,12 @@ $result = mysqli_query($con,$sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="webpagedesign.css">
         <body>
+            
+            <!-- Display Alert if Session Message is Set -->
+        <?php if (isset($_SESSION['delete_message'])): ?>
+            <script>alert('<?php echo $_SESSION['delete_message']; ?>');</script>
+            <?php unset($_SESSION['delete_message']); // Clear session after displaying message ?>
+        <?php endif; ?>
 
             <nav>
                 <div class="logo">
@@ -70,7 +79,7 @@ $result = mysqli_query($con,$sql);
                 }
             } else {
                 echo "<tr><td colspan='3'>No participants found</td></tr>";
-            }W
+            }
             ?>
             </tbody>
         </table>
