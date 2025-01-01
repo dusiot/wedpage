@@ -58,3 +58,8 @@ if (mysqli_query($con, $sql)) {
           </script>";
 }
 ?>
+
+
+// Close the connection
+mysqli_close($con);
+?>
