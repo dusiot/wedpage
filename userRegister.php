@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost", "root", "", "projectevent") or die ("Connection Error");
+$con = mysqli_connect("localhost", "root", "", "projectevent") or die("Connection Error");
 
 // Check if all fields are filled
 if (empty($_POST['username']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['confirm_password'])) {
@@ -33,7 +33,19 @@ if ($password !== $confirm_password) {
     exit();
 }
 
-$sql = "INSERT INTO usertable VALUES (null, '$username', '$password', '$email')";
+// Check if the username already exists in the database
+$sql = "SELECT * FROM usertable WHERE Username = '$username'";
+$result = mysqli_query($con, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    echo "<script type='text/javascript'>
+            alert('Username already exists!');
+            window.history.back(); // Redirect back to the previous page
+          </script>";
+    exit();
+}
+
+$sql = "INSERT INTO usertable (Username, Password, Email) VALUES ('$username', '$password', '$email')";
 
 if (mysqli_query($con, $sql)) {
     echo "<script type='text/javascript'>
