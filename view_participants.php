@@ -46,7 +46,7 @@ $result = mysqli_query($con,$sql);
                     <img src="uni10.png" alt="Logo">
                 </div>
                 <ul>
-                    <li><a href="home_page.html">Home</a></li>
+                    <li><a href="admin_dashboard.php">Back</a></li>
                 </ul>
             </nav>
     <!-- View Participants Page -->
