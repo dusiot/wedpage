@@ -41,6 +41,7 @@ if (mysqli_num_rows($result) > 0) {
             <img src="uni10.png" alt="Logo">
         </div>
         <ul>
+            <li><a href="register_event.php">Logout</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
