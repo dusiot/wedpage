@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<script>alert('You are already registered for this event!');</script>";
     } else {
         // Insert the registration into the database
-        $sql_insert = "INSERT INTO registered_events (User ID, EventID) VALUES ('$user_id', '$event_id')";
+        $sql_insert = "INSERT INTO participant_table (User ID, EventID) VALUES ('$user_id', '$event_id')";
         if (mysqli_query($con, $sql_insert)) {
             echo "<script>alert('Successfully registered for the event!'); window.location.href='user_dashboard.php';</script>";
         } else {
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <section id="register-event">
         <h2>Register for an Event</h2>
         <p>Choose an event from the list below to register:</p>
-        <form action="register_event.php" method="POST">
+        <form action="part_event.php" method="POST">
             <table>
                 <thead>
                     <tr>
@@ -78,11 +78,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>";
-                            echo "<td>" . htmlspecialchars($row['ev_name']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['ev_venue']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['ev_date']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['ev_action']) . "</td>";
-                            echo "<td><button type='submit' name='event' value='" . $row['ID'] . "'>Register</button></td>";
+                            echo "<td>" . htmlspecialchars($row['Name']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Venue']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Date']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Action']) . "</td>";
+                            echo "<td><button type='submit' name='event' value='" . $row['EventID'] . "'>Register</button></td>";
                             echo "</tr>";
                         }
                     } else {
