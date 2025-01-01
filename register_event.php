@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <img src="uni10.png" alt="Logo">
         </div>
         <ul>
-            <li><a href="home_page.html">Home</a></li>
+            <li><a href="user_dashboard.php">Home</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
