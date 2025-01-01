@@ -6,7 +6,7 @@ if (empty($_POST['username']) || empty($_POST['email']) || empty($_POST['passwor
     echo "<script type='text/javascript'>
             alert('All fields are required!');
             window.history.back(); // Redirect back to the previous page
-          </script>";
+          </script>"; 
     exit();
 }
 
@@ -20,7 +20,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo "<script type='text/javascript'>
             alert('Invalid email format!');
             window.history.back(); // Redirect back to the previous page
-          </script>";
+          </script>"; 
     exit();
 }
 
@@ -29,17 +29,17 @@ if ($password !== $confirm_password) {
     echo "<script type='text/javascript'>
             alert('Passwords do not match!');
             window.history.back(); // Redirect back to the previous page
-          </script>";
+          </script>"; 
     exit();
 }
 
-// Check if the username already exists in the database
-$sql = "SELECT * FROM usertable WHERE Username = '$username'";
+// Check if the username or email already exists in the database
+$sql = "SELECT * FROM usertable WHERE Username = '$username' OR Email = '$email'";
 $result = mysqli_query($con, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     echo "<script type='text/javascript'>
-            alert('Username already exists!');
+            alert('Username or Email already exists!');
             window.history.back(); // Redirect back to the previous page
           </script>";
     exit();
@@ -57,7 +57,4 @@ if (mysqli_query($con, $sql)) {
             alert('Error inserting data.');
           </script>";
 }
-
-// Close the connection
-mysqli_close($con);
 ?>
