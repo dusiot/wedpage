@@ -1,4 +1,4 @@
- <!--USER-->  
+<!--USER-->  
 <!DOCTYPE html>
 <html>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
 <!-- User Registration Page -->
 <section id="user-register">
     <h2>User Registration</h2>
-    <form name=RegisterForm action="userRegister.php" method="POST">
+    <form name="RegisterForm" action="userRegister.php" method="POST" onsubmit="return validateForm()">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
 
@@ -36,6 +36,19 @@
 <footer>
     <p>&copy; 2024 Event Management System by group 15 2B_01</p>
 </footer>
-</body>
 
+<script>
+    function validateForm() {
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirm-password").value;
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match! Please try again.");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</body>
 </html>
