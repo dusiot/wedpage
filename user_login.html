@@ -1,35 +1,47 @@
-   <!--USER-->  
-  <!DOCTYPE html>
-  <html>
+<!DOCTYPE html>
+<html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="webpagedesign.css">
     <body>
-      <nav>
-        <div class="logo">
-          <img src="uni10.png" alt="Logo">
-      </div>
-        <ul>
-            <li><a href="home_page.html">Home</a></li>
-        </ul>
-    </nav>
+        <nav>
+            <div class="logo">
+                <img src="uni10.png" alt="Logo">
+            </div>
+            <ul>
+                <li><a href="home_page.html">Home</a></li>
+            </ul>
+        </nav>
 
-  <!-- User Login Page -->
-  <section id="user-login">
-    <h2>User Login</h2>
-    <form name=LoginForm action="userLogin.php" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+    <!-- User Login Page -->
+    <section id="user-login">
+        <h2>User Login</h2>
+        <form name="LoginForm" action="userLogin.php" method="POST" onsubmit="return validateForm()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
 
-        <button type="submit">Login</button>
-    </form>
-</section>
-<footer>
-  <p>&copy; 2024 Event Management System by group 15 2B_01</p>
-</footer>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Event Management System by group 15 2B_01</p>
+    </footer>
+
+    <script>
+        function validateForm() {
+            var username = document.forms["LoginForm"]["username"].value;
+            var password = document.forms["LoginForm"]["password"].value;
+
+            if (username == "" || password == "") {
+                alert("Please fill in both the username and password.");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
 </body>
-
 </html>
